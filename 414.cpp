@@ -2,9 +2,8 @@
 #include <iostream>
 using namespace std;
 
-const int MAXM = 30;
 const int MAXN = 1000;
-char p[MAXM];
+
 int x[MAXN];
 
 int main() {
