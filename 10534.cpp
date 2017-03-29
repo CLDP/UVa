@@ -1,36 +1,37 @@
 #include <iostream>
+#include <cstring>
 #include <algorithm>
 using namespace std;
 
 const int MAXN = 10010;
 
-int N;
-int X[MAXN], f[MAXN], g[MAXN], h[MAXN];
-
-void solve(int *f) {
-    int R = 1;
-    f[0] = 1;
-    h[1] = X[0];
-    for (int i = 1; i < N; ++i) {
-        int P = lower_bound(h + 1, h + R + 1, X[i]) - h;
-        h[P] = X[i];
-        f[i] = P;
-        if (P == R + 1) ++R;
-    }
-}
+int x[MAXN], f[MAXN], g[MAXN], p[MAXN];
 
 int main() {
     ios_base::sync_with_stdio(false);
+    int N;
     while (cin >> N) {
-        for (int i = 0; i < N; ++i) cin >> X[i];
-        solve(f);
-        reverse(X, X + N);
-        solve(g);
-        reverse(g, g + N);
-        int ans = 0;
-        for (int i = 0; i < N; ++i) {
-            if (min(f[i], g[i]) * 2 - 1 > ans) ans = min(f[i], g[i]) * 2 - 1;
+        for (int i = 1; i <= N; ++i) cin >> x[i];
+        memset(f, 0, sizeof(f));
+        memset(g, 0, sizeof(g));
+
+        int m = 1;
+        for (int i = 1; i <= N; ++i) {
+            int t = lower_bound(p + 1, p + m, x[i]) - p;
+            p[t] = x[i];
+            f[i] = t;
+            if (t == m) ++m;
         }
+
+        m = 1;
+        for (int i = N; i >= 1; --i) {
+            int t = lower_bound(p + 1, p + m, x[i]) - p;
+            p[t] = x[i];
+            g[i] = t;
+            if (t == m) ++m;
+        }
+        int ans = 0;
+        for (int i = 1; i <= N; ++i) ans = max(ans, min(f[i], g[i]) * 2 - 1);
         cout << ans << endl;
     }
     return 0;
