@@ -9,7 +9,7 @@ int z[MAXN];
 int dfs(int a, int now) {
     if (now > ans) ans = now;
     bool flag;
-    for (int i = a+1; i < m; ++i) {
+    for (int i = a + 1; i < m; ++i) {
         flag = true;
         for (int j = x[i]; j < y[i]; ++j) {
             z[j] += w[i];
