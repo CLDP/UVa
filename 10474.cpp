@@ -22,7 +22,7 @@ int main() {
             if (!x[c]) 
                 printf("%d not found\n", c); 
             else 
-                printf("%d found at %d\n", c, y[c - 1]+1);
+                printf("%d found at %d\n", c, y[c - 1] + 1);
         }
         scanf("%d%d", &a, &b);
     }
