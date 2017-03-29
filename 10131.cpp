@@ -32,17 +32,18 @@ int main() {
     for (int i = 0; i < n; ++i) {
         f[i] = 1;
         d[i] = -1;
-        for (int j = 0; j < i; ++j)
-         if (x[j] > x[i] && y[j] < y[i]) {
-             if (f[j] + 1 > f[i]) {
-                 f[i] = f[j] + 1;
-                 d[i] = j;
-             }
-             if (f[i] > ans) {
-                 ans = f[i];
-                 dd = i;
-             }
-         }
+        for (int j = 0; j < i; ++j) {
+            if (x[j] > x[i] && y[j] < y[i]) {
+                if (f[j] + 1 > f[i]) {
+                    f[i] = f[j] + 1;
+                    d[i] = j;
+                }
+                if (f[i] > ans) {
+                    ans = f[i];
+                    dd = i;
+                }
+            }
+        }
     }
     
     printf("%d\n", ans);
