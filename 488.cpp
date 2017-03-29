@@ -12,9 +12,9 @@ int main() {
                 for (int k = 0; k < j; ++k) cout << j;
                 cout << endl;
             }
-            for (int j = n-1; j > 0; --j) {
+            for (int j = n - 1; j > 0; --j) {
                 for (int k = 0; k < j; ++k) cout << j;
-                if (i < t-1 || m > 1 || j > 1) cout << endl;
+                if (i < t - 1 || m > 1 || j > 1) cout << endl;
             }
             cout << endl;
             --m;
