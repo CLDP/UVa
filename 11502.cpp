@@ -21,7 +21,7 @@ int main() {
             cin >> s >> l >> t >> c;
             for (int j = MAXM - s - l - 1; j >= 0; --j) {
                 int total = j + s + l;
-                if (t / total < G) continue;
+                if (1.0 * t / total < G) continue;
                 double time = 1.0 * l / c;
                 double acc = t * (log(total) - log(j + s)) / c - time * G;
                 f[total] = max(f[total], acc + f[j]);
