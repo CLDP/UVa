@@ -87,6 +87,5 @@ int main() {
         for (int i = f[N].L - 1; i >= 0; --i) cout << f[N].x[i];
         cout << endl;
     }
-
     return 0;
 }
